@@ -149,7 +149,7 @@ function initial_btn_function_imgonly(id){
 
 window.onload = function(){
     
-    $('#user').on('click', function(){
+    $('#user').click(function(){
         
         if($('.user-list').css('display') == 'none')
             $('.user-list').css('display', 'block');
@@ -159,7 +159,7 @@ window.onload = function(){
     })
 
     $('#logout').click(function(){
-        window.location.href = 'http://localhost/project_web/auth/auth.php';
+        window.location.href = 'http://localhost/web/auth/auth.php';
     })
 
     
