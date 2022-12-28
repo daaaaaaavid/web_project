@@ -87,10 +87,10 @@
     <link rel="stylesheet" href="../logo/logo.css"/>
     <link rel="stylesheet" href="top.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-  <script>var tool;</script>
+    <script src="tool.js"></script>
   	<script src="t3.js"></script>
     <script src="top.js"></script>
-    <script src="tool.js"></script>
+    <script>tool.set_item_to_int("block_id", <?php echo $row['size']+1 ?>);</script>
   </head>
   <body>
     <div class="top">
@@ -163,7 +163,7 @@
 				}
 			})
 		});
-    tool.set_item_to_int("block_id", <?php echo $row['size']+1 ?>);
+    
   </script>
 	
 	<script>
