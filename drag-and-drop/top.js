@@ -164,19 +164,10 @@ function initial_btn_function_imgonly(id){
 
 
 window.onload = function(){
+
+    console.log('A');
     
-    $('#user').click(function(){
-        
-        if($('.user-list').css('display') == 'none')
-            $('.user-list').css('display', 'block');
-        else
-            $('.user-list').css('display', 'none');
-
-    })
-
-    $('#logout').click(function(){
-        window.location.href = 'http://localhost/web/auth/auth.php';
-    })
+    
 
     
 }

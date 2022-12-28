@@ -81,11 +81,12 @@
 <html>
   <head>
     <title>
-        drag and drop
+        <?php echo $row['name']?>
     </title>
     <link rel="stylesheet" href="t3.css"/>
     <link rel="stylesheet" href="../logo/logo.css"/>
     <link rel="stylesheet" href="top.css"/>
+    <link rel="icon" href="../logo/icon.PNG">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="tool.js"></script>
   	<script src="t3.js"></script>
@@ -107,12 +108,20 @@
             <p id="store-message" class="message">未有任何動態</p>
         </div>
       
-      <div class="user">
-          <img src="../selfie_img/<?php echo $_POST['image'];?>.png" class="selfie" id="user">
-          <ul class="user-list">
-              <li>Hi <strong><?php $email = explode('@', $_POST['email']); echo $email[0] ?></strong></li>
-              <li class="need-hover">LOG OUT</li>
-          </ul>
+      <div class="who" style="display: flex;">
+          <form method="POST" target="_blank" action="../preview/preview.php">
+            <input type="text" style="display: none" value="<?php echo $_POST['email'] ?>" name="email">
+            <input type="text" style="display: none" value="<?php echo $_POST['password'] ?>" name="password">
+            <input type="text" style="display: none" value="<?php echo $_POST['project'] ?>" name="project">
+            <button id="preview">預覽</button>
+          </form>
+        <div class="user">
+            <img src="../selfie_img/<?php echo $_POST['image'];?>.png" class="selfie" id="user">
+            <ul class="user-list">
+                <li>Hi <strong><?php $email = explode('@', $_POST['email']); echo $email[0] ?></strong></li>
+                <li class="need-hover">LOG OUT</li>
+            </ul>
+        </div>
       </div>
     </div>
     <hr>
@@ -199,11 +208,24 @@
 				else{
 					if(text.length != 0)
 					$('#store-message').text(text);
+          document.title = $('#project-name').val();
 				}
 			});
 			
 		}
 		window.onload = function(){
+      $('#user').click(function(){
+        
+        if($('.user-list').css('display') == 'none')
+            $('.user-list').css('display', 'block');
+        else
+            $('.user-list').css('display', 'none');
+
+    })
+
+    $('#logout').click(function(){
+        window.location.href = 'http://localhost/web/auth/auth.php';
+    })
 			document.getElementById('project-name').addEventListener('change', function(){
 				save_name();
 			})
