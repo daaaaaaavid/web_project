@@ -79,6 +79,7 @@
         <link rel="icon" href="../logo/icon.PNG">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
         <script>
+            
             const fresh_project = function (){
                 $.post('query.php', 
                     {email: "<?php echo $_POST['email']?>", password: "<?php echo $_POST['password']?>", image: <?php echo $image?>}, 
@@ -87,8 +88,23 @@
                             alert(text);
                             return;
                         }
-                        console.log(text);
                         document.querySelector("#project").innerHTML = text;
+                        document.querySelectorAll(".delete").forEach(function(node){
+                            console.log(node);
+                            node.addEventListener("click", function(event){
+                                console.log("A");
+                                event.preventDefault();
+                                var id = node.id.split("-")[2];
+                                $.post("deletion.php", {"email": $("#email-user-" + id).val(), "project": $("#project-user-" + id).val(),"image": <?php echo $image?> , "password": ' <?php $_POST['password'] ?>'},function(text){
+                                    if(text.includes("xampp") && !text.includes("text.includes(\"xampp\")")){
+                                        alert(text);
+                                        return;
+                                    }
+
+                                    fresh_project();
+                                })
+                            })
+                        })
                 })
             }
         </script>

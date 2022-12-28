@@ -64,21 +64,25 @@
             </tr>';
     }
 
-    echo '</table>';
-    echo '<script>
-            document.querySelectorAll(".delete").forEach(function(node){
-                node.addEventListener("click", function(event){
-                    event.preventDefault();
-                    var id = node.id.split("-")[2];
-                    $.post("deletion.php", {"email": $("#email-user-" + id).val(), "project": $("#project-user-" + id).val(),"image": ' . $_POST['image'] .', "password": ' . $_POST['password'] . '},function(text){
-                        if(text.includes("xampp") && !text.includes("text.includes(\"xampp\")")){
-                            alert(text);
-                            return;
-                        }
+    
+    // echo '<script>
+    //         console.log("A");
+    //         document.querySelectorAll(".delete").forEach(function(node){
+    //             console.log(node);
+    //             node.addEventListener("click", function(event){
+    //                 console.log("A");
+    //                 event.preventDefault();
+    //                 var id = node.id.split("-")[2];
+    //                 $.post("deletion.php", {"email": $("#email-user-" + id).val(), "project": $("#project-user-" + id).val(),"image": ' . $_POST['image'] .', "password": ' . $_POST['password'] . '},function(text){
+    //                     if(text.includes("xampp") && !text.includes("text.includes(\"xampp\")")){
+    //                         alert(text);
+    //                         return;
+    //                     }
 
-                        fresh_project();
-                    })
-                })
-            })
-        </script>';
+    //                     fresh_project();
+    //                 })
+    //             })
+    //         })
+    //     </script>';
+        echo '</table>';
 ?>
