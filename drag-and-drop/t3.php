@@ -150,20 +150,29 @@
 	<script>
 		document.querySelectorAll('.block').forEach((item) =>{
 			item.addEventListener('click', function(){
+        console.log(this.id);
 				if(this.id.includes('textonly')){
-          this.id.addEventListener("click",function(){
+          
             initial_btn_function_textonly(this.id);
-          })
 					
 				}
 				else if(this.id.includes('imageonly') && document.getElementById(this.id).children.length <= 1){
-          this.id.addEventListener("click",function(){
+          
             initial_btn_function_imgonly(this.id);
-          })
+
 				}
 			})
 		});
-    
+    document.querySelectorAll('.block_image').forEach((item) =>{
+			item.addEventListener('click', function(){
+        initial_btn_function_imgonly(this.id);
+			})
+		});
+    document.querySelectorAll('.block_text').forEach((item) =>{
+			item.addEventListener('click', function(){
+        initial_btn_function_textonly(this.id);
+			})
+		});
   </script>
 	
 	<script>

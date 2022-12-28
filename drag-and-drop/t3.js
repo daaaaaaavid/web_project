@@ -216,16 +216,13 @@ function add_block_event(){
 
       }
       current.addEventListener('click', function(){
+        console.log(this.id);
         if(this.id.includes('textonly')){
-          this.id.addEventListener("click",function(){
-            initial_btn_function_textonly(current.id);
-          })
-          
+          initial_btn_function_textonly(current.id);
+          // 
         }
         else if(this.id.includes('imageonly') && document.getElementById(this.id).children.length <= 1){
-          this.id.addEventListener("click",function(){
             initial_btn_function_imageonly(current.id);
-          })
         }
       })
     }
