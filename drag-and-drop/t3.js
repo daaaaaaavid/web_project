@@ -1,12 +1,7 @@
-var tool;
+var tool = new Tool();
 window.addEventListener("DOMContentLoaded", () => {
   add_template_event();
-  tool = new Tool();
 });
-
-function get_tool(){
-  return tool;
-}
 
 function add_template_event(){
 
