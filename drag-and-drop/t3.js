@@ -217,10 +217,15 @@ function add_block_event(){
       }
       current.addEventListener('click', function(){
         if(this.id.includes('textonly')){
-          initial_btn_function_textonly(current.id);
+          this.id.addEventListener("click",function(){
+            initial_btn_function_textonly(current.id);
+          })
+          
         }
         else if(this.id.includes('imageonly') && document.getElementById(this.id).children.length <= 1){
-          initial_btn_function_imgonly(this.id);
+          this.id.addEventListener("click",function(){
+            initial_btn_function_imageonly(current.id);
+          })
         }
       })
     }
