@@ -98,7 +98,12 @@ function initial_btn_function_imgonly(id){
     })
 
     $('button.img').click(function(){
-        $('#'+id).remove();
+        var temp = document.getElementById(id);
+        if(temp.classList.contains("image-text") || temp.classList.contains("text-image"))
+            temp.parent().remove();
+        else 
+            temp.remove();
+        // $('#'+id).parent().remove();
     })
 
     var input = document.getElementById("photo");
