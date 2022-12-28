@@ -13,7 +13,7 @@ window.onload = function(){
     })
 
     $('#logout').click(function(){
-        window.location.href = 'http://localhost/project_web/auth/auth.php';
+        window.location.href = 'http://localhost/web/auth/auth.php';
     })
 
     $('#logo').click(function(event){

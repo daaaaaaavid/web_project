@@ -107,7 +107,7 @@ function initial_btn_function_imgonly(id){
     })
 
     var input = document.getElementById("photo");
-    var num = id.slice(0,1);
+    var num = id.split('_')[0];
 
     input.addEventListener("change", function(ev) {
           
@@ -117,7 +117,9 @@ function initial_btn_function_imgonly(id){
 
         //document.querySelector("#image").src = reader.result
         let parent = document.getElementById(num.toString() + '_image');
-        parent.innerHTML = '';
+        console.log(num.toString() + '_image')
+        if(parent)
+            parent.innerHTML = '';
         //parent.removeChild(input);
         let image = document.createElement("img");
         image.ondragstart = (ev) =>{
