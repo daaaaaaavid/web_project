@@ -3,10 +3,6 @@ class Tool{
         this.list = {};
     }
 
-    set_item_to_int(key){
-        this.list[key] = {'type': 'int', 'value': 0};
-    }
-
     set_item_to_int(key, value){
         this.list[key] = {'type': 'int', 'value': value};
     }

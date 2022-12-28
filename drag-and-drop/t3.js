@@ -1,11 +1,12 @@
 var tool;
-
 window.addEventListener("DOMContentLoaded", () => {
   add_template_event();
   tool = new Tool();
-  tool.set_item_to_int("block_id");
-
 });
+
+function get_tool(){
+  return tool;
+}
 
 function add_template_event(){
 

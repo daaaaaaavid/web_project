@@ -1,7 +1,7 @@
 <?php
 
     if(!isset($_POST['email']) || !isset($_POST['password']) ){
-        header('Location: http://localhost/project_web/auth/auth.php');
+        header('Location: http://localhost/web/auth/auth.php');
         exit();
     }
 

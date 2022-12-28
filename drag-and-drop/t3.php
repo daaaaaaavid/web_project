@@ -1,7 +1,7 @@
 <?php
 
     if(!isset($_POST['email']) || !isset($_POST['password']) || !isset($_POST['image']) || !isset($_POST['project'])){
-        header('Location: http://localhost/project_web/auth/auth.php');
+        header('Location: http://localhost/web/auth/auth.php');
         exit();
     }
 
@@ -87,55 +87,7 @@
     <link rel="stylesheet" href="../logo/logo.css"/>
     <link rel="stylesheet" href="top.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    
-	<!-- <script>
-		const update_img = function(block, formData){
-
-			formData.append('email','<?php echo $_POST['email'] ?>');
-			formData.append('project', <?php echo $_POST['project'] ?>);
-			formData.append('block', block);
-
-			let item = {
-				'url': 'update_img.php',
-				'type': 'POST',
-				'headers': {
-				// 'Content-Type': 'multipart/form-data',
-				// 使用 multipart/form-data 在此不需要設定 Content-Type。
-				'X-Requested-With': 'XMLHttpRequest',
-				},
-				'contentType': false, //required
-				'processData': false, // required
-				'mimeType': 'multipart/form-data',
-				'data': formData
-			}
-
-			$.ajax(item).done(function (response) {
-				console.log(response)
-			})
-			
-		}
-  </script>
-  <script>
-		function download_img(block){
-			$.post('download_img.php',{email:'<?php echo $_POST['email'] ?>', project: <?php echo $_POST['project'] ?>, block:block }, function(response){
-				// var blob = new Blob(response);
-				// var imageUrl = (window.URL || window.webkitURL).createObjectURL(blob);
-				// $(temp).attr("src", imageUrl);
-				// $('#temp').attr('src', 'data:image/jpg;base64,'+response);
-
-				var arrayBufferView = new Uint8Array(response);
-				var blob = new Blob([arrayBufferView], { type: 'image/jpeg' });
-
-				// 使用 URL.createObjectURL 創建圖像 URL
-				var url = URL.createObjectURL(blob);
-
-				// 使用 Image 對象顯示圖像
-				var img = new Image();
-				img.src = url;
-				document.body.appendChild(img);
-			})
-		}
-	</script> -->
+  <script>var tool;</script>
   	<script src="t3.js"></script>
     <script src="top.js"></script>
     <script src="tool.js"></script>
@@ -211,10 +163,12 @@
 				}
 			})
 		});
+    tool.set_item_to_int("block_id", <?php echo $row['size']+1 ?>);
   </script>
 	
 	<script>
 		const save_html = function(){
+      console.log(tool.list['block_id']['value'])
 			$.post('update.php', {email: '<?php echo $_POST['email'] ?>', project: <?php echo $_POST['project'] ?>, html: $('.left').html().trim().replace('\n',''),size: tool.list['block_id']['value']},function(text){
 				if(text.includes('xampp')){
 					alert(text);
