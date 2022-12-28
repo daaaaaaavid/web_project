@@ -208,8 +208,8 @@
 				save_name();
 			})
 		}
-	setTimeout(save_html, 1000);
-	setInterval(save_html, 60000);
+	// setTimeout(save_html, 1000);
+	// setInterval(save_html, 60000);
   window.onbeforeunload = function() {
     alert('警告，確認關閉頁面嗎');
     save_html();

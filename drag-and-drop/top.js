@@ -71,21 +71,27 @@ function initial_btn_function_imgonly(id){
     <label class="btn btn-info"><input type="file" id="photo"><div class="photo">上傳圖片</div></label>\
     <button id="delete" class="img">刪除</button>\
     ')
+
+    iid = id;
+    if(!iid.includes('only'))
+        iid += 'only';
     
-    $($('#img_'+id)).on('load', function(){
-        console.log('A');
-        $('#width').val($('#img_'+id).width());
-        $('#height').val($('#img_'+id).height());
+    $($('#img_'+iid)).on('load', function(){
+        $('#width').val($('#img_'+iid).width());
+        $('#height').val($('#img_'+iid).height());
     })
 
-    if($('#img_'+id).width() && $('#img_'+id).height()){
-        $('#width').val($('#img_'+id).width());
-        $('#height').val($('#img_'+id).height());
+    if($('#img_'+iid).width() && $('#img_'+iid).height()){
+        $('#width').val($('#img_'+iid).width());
+        $('#height').val($('#img_'+iid).height());
     }
   
     document.querySelectorAll('.img-simple-btn').forEach(function(node){
         node.addEventListener('click', function(){
-            $('#'+id).children().css('justify-content', node.id);
+            if(!$('#'+id).attr('class').includes('block_image'))
+                $('#'+id).children().css('justify-content', node.id);
+            else
+                $('#'+id).css('justify-content', node.id);
             
         })
         
@@ -93,7 +99,10 @@ function initial_btn_function_imgonly(id){
 
     document.querySelectorAll('.img-value-btn').forEach(function(node){
         node.addEventListener('change', function(){
-            $('#'+id).children().children().children().attr(node.id, node.value);
+            if(!$('#'+id).attr('class').includes('block_image'))
+                $('#'+id).children().children().children().attr(node.id, node.value);
+            else
+            $('#'+id).children().children().attr(node.id, node.value);
         })
     })
 
